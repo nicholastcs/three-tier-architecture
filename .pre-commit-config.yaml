@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.17
+    hooks:
+      - id: terraform-fmt
+        name: Formatting
+      - id: terraform-validate
+        name: Run Terraform Validate
+      - id: tflint
+        name: Run Terraform Lint (tflint)
+
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: v0.15.0
+    hooks:
+      - id: terraform-docs-go
+        args: ["--output-file", "DOCS.md", "markdown", "./modules/app/"]
+      - id: terraform-docs-go
+        args: ["--output-file", "DOCS.md", "markdown", "./modules/launch_template/"]
+      - id: terraform-docs-go
+        args: ["--output-file", "DOCS.md", "markdown", "./modules/lb/"]
+      - id: terraform-docs-go
+        args: ["--output-file", "DOCS.md", "markdown", "./modules/psql_rds/"]
+      - id: terraform-docs-go
+        args: ["--output-file", "DOCS.md", "markdown", "./modules/vpc/"]
